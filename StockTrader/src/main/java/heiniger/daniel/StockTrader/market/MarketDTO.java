@@ -6,17 +6,18 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class MarketDTO extends DTO {
-    private String symbol;
+public class MarketDTO implements DTO {
+    private String symbol;//"Snap"
     private float marketPercent;
-    private int bidSize;
-    private BigDecimal bidPrice;
-    private int askSize;
-    private BigDecimal askPrice;
-    private int volume;
-    private BigDecimal lastSalePrice;
+    private int bidSize;//0
+    private BigDecimal bidPrice;//0
+    private int askSize;//0
+    private BigDecimal askPrice;//0
+    private long volume;
+    private BigDecimal lastSalePrice;//14.925
+    private int lastSaleSize;
     private long lastSaleTime;
-    private long lastUpdated;
-    private String sector;
-    private String securityType;
+    private long lastUpdated;//156...
+    private String sector;//"mediaentertainment
+    private String securityType;//"commonstock"
 }

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class MarketPort {
 
@@ -14,7 +16,7 @@ public class MarketPort {
         this.restTemplate = restTemplate;
     }
 
-    public ResponseEntity<String> retrieveMarketData(){
-        return restTemplate.get("tops?symbols=snap", String.class);
+    public ResponseEntity<List<MarketDTO>> retrieveMarketData(){
+        return restTemplate.getList("tops", MarketDTO.class);
     }
 }

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class AccountDTO extends DTO {
+public class AccountDTO implements  DTO {
     private String id;
     private String poop;
     private String currency;

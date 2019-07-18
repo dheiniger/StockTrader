@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
-public class OrderDTO extends DTO {
+public class OrderDTO implements DTO {
     private String id;
 
     @JsonProperty("client_order_id")

@@ -5,7 +5,7 @@ import heiniger.daniel.StockTrader.DTO;
 import lombok.Data;
 
 @Data
-public class AssetDTO extends DTO {
+public class AssetDTO implements DTO {
     private String id;
     @JsonProperty("class")
     private String assetClass;

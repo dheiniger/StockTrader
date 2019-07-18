@@ -11,6 +11,6 @@ public class MarketPortSpringTests extends BaseSpringTest {
 
     @Test
     public void canGetMarketData(){
-        marketPort.retrieveMarketData();
+        System.out.println(marketPort.retrieveMarketData());
     }
 }

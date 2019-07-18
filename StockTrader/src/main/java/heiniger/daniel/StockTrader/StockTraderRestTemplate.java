@@ -65,7 +65,7 @@ public class StockTraderRestTemplate {
         return headers;
     }
 
-    private <D extends DTO> List<D> exchangeList(String location, HttpMethod get, Class<? extends DTO> responseType, Optional<D> body) {
+    protected <D extends DTO> List<D> exchangeList(String location, HttpMethod get, Class<? extends DTO> responseType, Optional<D> body) {
         return (List<D>) restTemplate.exchange(properties.getBaseUrl() + location, get, getHttpRequest(body), List.class)
                 .getBody()
                 .stream()
@@ -74,24 +74,24 @@ public class StockTraderRestTemplate {
                 .collect(Collectors.toList());
     }
 
-    private JSONObject jsonObject(Object o){
+    protected JSONObject jsonObject(Object o){
         JSONObject json = new JSONObject((Map)o);
         System.out.println("o: " + o.getClass().toString());
         System.out.println("json:" + json);
         return json;
     }
 
-    private <D extends DTO> D jsonToDTO(Object object, Class<? extends D> type){
+    protected <D extends DTO> D jsonToDTO(Object object, Class<? extends D> type){
         try {
             System.out.println("object: " + object.getClass().toString());
             return mapper.readValue(object.toString(), type);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        throw new DTOMappingFailedExcpetion();
+        throw new DTOMappingFailedException();
     }
 
-    private class DTOMappingFailedExcpetion extends RuntimeException{
+    private class DTOMappingFailedException extends RuntimeException{
 
     }
 }
