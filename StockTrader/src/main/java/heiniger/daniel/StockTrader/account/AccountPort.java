@@ -17,8 +17,7 @@ public class AccountPort {
     }
 
     public ResponseEntity<AccountDTO> retrieveAccountInformation() {
-//       return restTemplate.get("account", AccountDTO.class);
-       return null;//TODO
+       return restTemplate.get("account", AccountDTO.class);
     }
 
 }
