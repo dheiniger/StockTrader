@@ -6,8 +6,7 @@ import heiniger.daniel.StockTrader.DTO;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
@@ -18,25 +17,25 @@ public class OrderDTO implements DTO {
     private String clientOrderId;
 
     @JsonProperty("created_at")
-    private LocalDateTime createdAt;
+    private Date createdAt;
 
     @JsonProperty("updated_at")
-    private LocalDateTime updatedAt;
+    private Date updatedAt;
 
     @JsonProperty("submitted_at")
-    private LocalDateTime submittedAt;
+    private Date submittedAt;
 
     @JsonProperty("filled_at")
-    private LocalDateTime filledAt;
+    private Date filledAt;
 
     @JsonProperty("expired_at")
-    private LocalDateTime expiredAt;
+    private Date expiredAt;
 
     @JsonProperty("canceled_at")
-    private LocalDate cancelledAt;
+    private Date cancelledAt;
 
     @JsonProperty("failed_at")
-    private LocalDateTime failedAt;
+    private Date failedAt;
 
     @JsonProperty("asset_id")
     private String assetId;
@@ -53,6 +52,8 @@ public class OrderDTO implements DTO {
 
     private String type;
 
+    @JsonProperty("order_type")
+    private String orderType;
     private String side;
 
     @JsonProperty("time_in_force")

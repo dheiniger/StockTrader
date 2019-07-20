@@ -15,4 +15,5 @@ public class APIProperties {
     private String privateKey;
     private String publicKeyHeader;
     private String publicKey;
+    private String polygonMarketKey;
 }

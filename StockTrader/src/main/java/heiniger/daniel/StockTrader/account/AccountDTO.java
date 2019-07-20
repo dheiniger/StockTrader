@@ -3,16 +3,16 @@ package heiniger.daniel.StockTrader.account;
 import heiniger.daniel.StockTrader.DTO;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 public class AccountDTO implements  DTO {
     private String id;
-    private String poop;
     private String currency;
-    private long buyingPower;
-    private long cash;
-    private long portfolioValue;
+    private BigDecimal buyingPower;
+    private BigDecimal cash;
+    private BigDecimal portfolioValue;
     private boolean patternDayTrader;
     private boolean tradingBlocked;
     private boolean transfersBlocked;
@@ -21,11 +21,11 @@ public class AccountDTO implements  DTO {
     private boolean tradeSuspendedByUser;
     private int multiplier;
     private boolean shortingEnabled;
-    private long equity;
-    private long lastEquity;
-    private long longMarketValue;
-    private long shortMarketValue;
-    private long initialMargin;
-    private long sma;
+    private BigDecimal equity;
+    private BigDecimal lastEquity;
+    private BigDecimal longMarketValue;
+    private BigDecimal shortMarketValue;
+    private BigDecimal initialMargin;
+    private BigDecimal sma;
     private int daytradeCount;
 }
