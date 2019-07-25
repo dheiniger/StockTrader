@@ -2,12 +2,9 @@ package heiniger.daniel.StockTrader.orders;
 
 import heiniger.daniel.StockTrader.StockTraderRestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.integration.IntegrationGraphEndpoint;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 

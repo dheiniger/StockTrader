@@ -1,11 +1,15 @@
 package heiniger.daniel.StockTrader;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import heiniger.daniel.StockTrader.config.APIProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.context.annotation.Primary;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -27,7 +31,7 @@ public class StockTraderRestTemplate {
     public StockTraderRestTemplate(RestTemplate restTemplate, APIProperties properties) {
         this.restTemplate = restTemplate;
         this.properties = properties;
-        this.mapper = new ObjectMapper();
+        this.mapper = defaultObjectMapper();
     }
 
     public <D extends DTO> ResponseEntity<List<D>> getList(String location, Class<D> responseType){
@@ -91,7 +95,12 @@ public class StockTraderRestTemplate {
         throw new DTOMappingFailedException();
     }
 
+    private ObjectMapper defaultObjectMapper(){
+        return new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    }
+
     private class DTOMappingFailedException extends RuntimeException{
 
     }
+
 }
