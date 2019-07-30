@@ -55,7 +55,7 @@ public class StockTraderRestTemplate {
     }
 
     protected <D extends DTO> ResponseEntity<D> request(String location, HttpMethod method, Class<D> responseType, Optional<D> body) {
-        return restTemplate.exchange(properties.getBaseUrl() + location, method, getHttpRequest(body), responseType);
+        return restTemplate.exchange(location, method, getHttpRequest(body), responseType);
     }
 
     protected <D extends DTO> HttpEntity getHttpRequest(Optional<D> body) {
@@ -70,7 +70,7 @@ public class StockTraderRestTemplate {
     }
 
     protected <D extends DTO> List<D> exchangeList(String location, HttpMethod get, Class<? extends DTO> responseType, Optional<D> body) {
-        return (List<D>) restTemplate.exchange(properties.getBaseUrl() + location, get, getHttpRequest(body), List.class)
+        return (List<D>) restTemplate.exchange(location, get, getHttpRequest(body), List.class)
                 .getBody()
                 .stream()
                 .map(this::jsonObject)

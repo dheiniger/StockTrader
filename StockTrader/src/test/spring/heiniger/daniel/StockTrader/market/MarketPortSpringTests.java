@@ -1,6 +1,7 @@
 package heiniger.daniel.StockTrader.market;
 
 import heiniger.daniel.StockTrader.BaseSpringTest;
+import heiniger.daniel.StockTrader.config.APIProperties;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,8 @@ public class MarketPortSpringTests extends BaseSpringTest {
 
     @Autowired
     private MarketPort marketPort;
+    @Autowired
+    private APIProperties properties;
 
     @Test
     public void canGetMarketData(){

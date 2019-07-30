@@ -1,23 +1,27 @@
 package heiniger.daniel.StockTrader.account;
 
+import heiniger.daniel.StockTrader.ApiPort;
 import heiniger.daniel.StockTrader.StockTraderRestTemplate;
 import heiniger.daniel.StockTrader.config.APIProperties;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import static java.lang.String.format;
+
 @Component
-public class AccountPort {
+public class AccountPort extends ApiPort {
 
-    private StockTraderRestTemplate restTemplate;
+    private static final Logger LOGGER = LoggerFactory.getLogger(AccountPort.class);
 
-    @Autowired
-    public AccountPort(StockTraderRestTemplate restTemplate, APIProperties properties) {
-        this.restTemplate = restTemplate;
+    public AccountPort(StockTraderRestTemplate restTemplate, APIProperties apiProperties) {
+        super(restTemplate, apiProperties);
     }
 
     public ResponseEntity<AccountDTO> retrieveAccountInformation() {
-       return restTemplate.get("account", AccountDTO.class);
+        LOGGER.debug("Retrieving Account Information...");
+        return restTemplate.get(format("%s/account", apiProperties.getBaseUrl()), AccountDTO.class);
     }
 
 }

@@ -1,24 +1,24 @@
 package heiniger.daniel.StockTrader.assets;
 
+import heiniger.daniel.StockTrader.ApiPort;
 import heiniger.daniel.StockTrader.StockTraderRestTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
+import heiniger.daniel.StockTrader.config.APIProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static java.lang.String.format;
+
 @Component
-public class AssetsPort {
+public class AssetsPort extends ApiPort {
 
-    private StockTraderRestTemplate restTemplate;
-
-    @Autowired
-    public AssetsPort(StockTraderRestTemplate restTemplate){
-        this.restTemplate = restTemplate;
+    public AssetsPort(StockTraderRestTemplate restTemplate, APIProperties apiProperties) {
+        super(restTemplate, apiProperties);
     }
 
     public ResponseEntity<List<AssetDTO>> retrieveAssets(){
-        return restTemplate.getList("assets", AssetDTO.class);
+        return restTemplate.getList(format("%s/assets", apiProperties.getBaseUrl()), AssetDTO.class);
     }
 }
 

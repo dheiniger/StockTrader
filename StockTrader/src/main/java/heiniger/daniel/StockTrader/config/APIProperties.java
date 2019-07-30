@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class APIProperties {
     private String baseUrl;
     private String baseMarketUrl;
+    private String baseHistoryUrl;
     private String privateKeyHeader;
     private String privateKey;
     private String publicKeyHeader;
