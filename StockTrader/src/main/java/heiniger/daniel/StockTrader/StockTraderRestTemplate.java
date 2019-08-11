@@ -64,6 +64,7 @@ public class StockTraderRestTemplate {
 
     private HttpHeaders getHeaders() {
         HttpHeaders headers = new HttpHeaders();
+        //TODO should these be in here at this level?  What about for polygon stuff?
         headers.set(properties.getPublicKeyHeader(), properties.getPublicKey());
         headers.set(properties.getPrivateKeyHeader(), properties.getPrivateKey());
         return headers;

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class TradeHistoryDTO implements DTO {
+public class MarketHistoryDTO implements DTO {
     private String status;
     private String symbol;
     private Last last;

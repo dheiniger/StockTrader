@@ -12,7 +12,7 @@ public class MarketDTO implements DTO {
     private List<Ticker> tickers;
 
     @Data
-    private static class Ticker {
+    public static class Ticker {
         private String ticker;
         private String name;
         private String market;

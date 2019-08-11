@@ -12,6 +12,7 @@ public class APIProperties {
     private String baseUrl;
     private String baseMarketUrl;
     private String baseHistoryUrl;
+    private String realTimeStockInfoUrl;
     private String privateKeyHeader;
     private String privateKey;
     private String publicKeyHeader;

@@ -16,7 +16,7 @@ public class MarketHistoryPortTest extends BaseSpringTest {
 
     @Test
     public void canRetrieveHistoricDataForSymbol(){
-        ResponseEntity<TradeHistoryDTO> tradeHistory = port.retrieveTradeHistory("AAPL");
+        ResponseEntity<MarketHistoryDTO> tradeHistory = port.retrieveTradeHistory("AAPL");
         assertEquals(HttpStatus.OK, tradeHistory.getStatusCode());
         assertNotNull(tradeHistory.getBody());
         System.out.println(tradeHistory.getBody().toString());
